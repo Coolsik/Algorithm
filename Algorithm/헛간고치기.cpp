@@ -85,6 +85,7 @@
 
 #include <iostream>
 #include <algorithm>
+#include <string.h>
 using namespace std;
 #define FAIL 999999999
 
@@ -95,13 +96,16 @@ int barn[201];
 int d[51][201];
 int func(int i, int j) {
 	int& ret = d[i][j];
-	if (i > M) { return FAIL; }	// 판자 너무 많음..
-	if (j == C - 1) { 
-		return 1; 
+	if (i == 0 && j == 0) {
+		ret = 1;
+	}
+	if (i < 0) { return FAIL; }	// 판자 너무 많음..
+	if (j < 0) { 
+		return ret = 1; 
 	}
 
-	if (ret == 0) {
-		ret = min(func(i, j + 1) + d[i][j], func(i+1, j+1)+1);
+	if (ret == -1) {
+		ret = min(func(i, j - 1) + barn[j] - barn[j - 1], func(i - 1, j - 1) + 1);
 	}
 	else {
 		ret = d[i][j];
@@ -115,10 +119,14 @@ int main() {
 	for (int i = 0; i < C; i++) {
 		cin >> barn[i];
 	}
+	memset(d, -1, sizeof(d));
 	sort(barn, barn + C);
-	d[0][0] = 1;
-
-	
+	if (M > C) {
+		cout << C;
+	}
+	else {
+		cout << func(M - 1, C - 1);
+	}
 
 	return 0;
 }
