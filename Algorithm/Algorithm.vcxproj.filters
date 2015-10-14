@@ -282,5 +282,14 @@
     <ClCompile Include="mixing_milk.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="b10166.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="invest.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="01knapsack.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
