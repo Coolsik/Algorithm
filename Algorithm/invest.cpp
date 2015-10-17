@@ -15,11 +15,12 @@ void bt(int m, int n) {
 int main() {
 	cin >> M >> N;
 	for (int i = 1; i <= M; i++) {
+		int temp;
+		cin >> temp;
 		for (int j = 1; j <= N; j++) {
-			cin >> arr[i][j];
-			if (j == 1) {
-				d[i][j] = arr[i][j];
-			}
+			cin >> arr[temp][j];
+			d[temp][j] = arr[temp][j];
+			p[temp][j] = temp;
 		}
 	}
 	for (int i = 1; i <= N; i++) {
@@ -37,3 +38,60 @@ int main() {
 	  
 	return 0;
 }
+
+//#include<iostream>
+//using namespace std;
+//
+//#define Nmax 310
+//
+//int N, M;
+//int A[Nmax][Nmax], D[Nmax][Nmax], P[Nmax][Nmax];
+//
+//void input()
+//{
+//	int a;
+//	cin >> N >> M;
+//	for (int i = 1; i <= N; i++) {
+//		cin >> a;
+//		for (int j = 0; j<M; j++) {
+//			cin >> A[a][j];
+//			D[a][j] = A[a][j];
+//			P[a][j] = a;
+//		}
+//	}
+//}
+//
+//void dfs(int y, int x)
+//{
+//	if (x == -1) return;
+//	dfs(y - P[y][x], x - 1);
+//	cout << P[y][x] << " ";
+//}
+//
+//void process()
+//{
+//	for (int i = 1; i <= N; i++) {
+//		for (int j = 1; j<M; j++) {
+//			for (int k = 1; k <= i; k++) {
+//				if (D[i][j] < D[k][j - 1] + A[i - k][j]) {
+//					D[i][j] = D[k][j - 1] + A[i - k][j];
+//					P[i][j] = i - k;
+//				}
+//			}
+//		}
+//	}
+//}
+//
+//void output()
+//{
+//	cout << D[N][M - 1] << endl;
+//	dfs(N, M - 1);
+//}
+//
+//int main()
+//{
+//	input();
+//	process();
+//	output();
+//	return 0;
+//}
